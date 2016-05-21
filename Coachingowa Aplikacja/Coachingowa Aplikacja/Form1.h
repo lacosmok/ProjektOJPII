@@ -40,7 +40,16 @@ namespace WindowsFormApplication1 {
 	private: Form^ tytul;
 	private:		 Timer^ timer1;
 	private: System::Windows::Forms::Label^  label_div_question;
-	private: System::Windows::Forms::ListBox^  listBox1;
+	private: System::Windows::Forms::GroupBox^  groupDywizja;
+	private: System::Windows::Forms::RadioButton^  radioSilver;
+	private: System::Windows::Forms::RadioButton^  radioGold;
+	private: System::Windows::Forms::RadioButton^  radioPlat;
+	private: System::Windows::Forms::GroupBox^  groupOcena;
+	private: System::Windows::Forms::RadioButton^  radioDecent;
+	private: System::Windows::Forms::RadioButton^  radioFeed;
+	private: System::Windows::Forms::RadioButton^  radioCarry;
+	private: System::Windows::Forms::Label^  labelOcena;
+
 	protected:
 
 	private:
@@ -62,12 +71,22 @@ namespace WindowsFormApplication1 {
 			this->Etykieta_tekst = (gcnew System::Windows::Forms::Label());
 			this->Etykieta_checkbox = (gcnew System::Windows::Forms::Label());
 			this->label_div_question = (gcnew System::Windows::Forms::Label());
-			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
+			this->groupDywizja = (gcnew System::Windows::Forms::GroupBox());
+			this->radioPlat = (gcnew System::Windows::Forms::RadioButton());
+			this->radioGold = (gcnew System::Windows::Forms::RadioButton());
+			this->radioSilver = (gcnew System::Windows::Forms::RadioButton());
+			this->groupOcena = (gcnew System::Windows::Forms::GroupBox());
+			this->radioCarry = (gcnew System::Windows::Forms::RadioButton());
+			this->radioFeed = (gcnew System::Windows::Forms::RadioButton());
+			this->radioDecent = (gcnew System::Windows::Forms::RadioButton());
+			this->labelOcena = (gcnew System::Windows::Forms::Label());
+			this->groupDywizja->SuspendLayout();
+			this->groupOcena->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(588, 392);
+			this->button1->Location = System::Drawing::Point(15, 329);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(170, 60);
 			this->button1->TabIndex = 0;
@@ -78,7 +97,7 @@ namespace WindowsFormApplication1 {
 			// Etykieta_tekst
 			// 
 			this->Etykieta_tekst->AutoSize = true;
-			this->Etykieta_tekst->Location = System::Drawing::Point(588, 95);
+			this->Etykieta_tekst->Location = System::Drawing::Point(187, 20);
 			this->Etykieta_tekst->Name = L"Etykieta_tekst";
 			this->Etykieta_tekst->Size = System::Drawing::Size(140, 13);
 			this->Etykieta_tekst->TabIndex = 1;
@@ -87,7 +106,7 @@ namespace WindowsFormApplication1 {
 			// Etykieta_checkbox
 			// 
 			this->Etykieta_checkbox->AutoSize = true;
-			this->Etykieta_checkbox->Location = System::Drawing::Point(591, 186);
+			this->Etykieta_checkbox->Location = System::Drawing::Point(211, 66);
 			this->Etykieta_checkbox->Name = L"Etykieta_checkbox";
 			this->Etykieta_checkbox->Size = System::Drawing::Size(43, 13);
 			this->Etykieta_checkbox->TabIndex = 2;
@@ -102,20 +121,113 @@ namespace WindowsFormApplication1 {
 			this->label_div_question->TabIndex = 3;
 			this->label_div_question->Text = L"W której dywizji jesteœ\?";
 			// 
-			// listBox1
+			// groupDywizja
 			// 
-			this->listBox1->FormattingEnabled = true;
-			this->listBox1->Location = System::Drawing::Point(15, 54);
-			this->listBox1->Name = L"listBox1";
-			this->listBox1->Size = System::Drawing::Size(120, 95);
-			this->listBox1->TabIndex = 4;
+			this->groupDywizja->Controls->Add(this->radioSilver);
+			this->groupDywizja->Controls->Add(this->radioGold);
+			this->groupDywizja->Controls->Add(this->radioPlat);
+			this->groupDywizja->Location = System::Drawing::Point(15, 66);
+			this->groupDywizja->Name = L"groupDywizja";
+			this->groupDywizja->Size = System::Drawing::Size(125, 103);
+			this->groupDywizja->TabIndex = 4;
+			this->groupDywizja->TabStop = false;
+			this->groupDywizja->Text = L"Dywizja";
+			// 
+			// radioPlat
+			// 
+			this->radioPlat->AutoSize = true;
+			this->radioPlat->Location = System::Drawing::Point(7, 20);
+			this->radioPlat->Name = L"radioPlat";
+			this->radioPlat->Size = System::Drawing::Size(60, 17);
+			this->radioPlat->TabIndex = 0;
+			this->radioPlat->TabStop = true;
+			this->radioPlat->Text = L"Platyna";
+			this->radioPlat->UseVisualStyleBackColor = true;
+			// 
+			// radioGold
+			// 
+			this->radioGold->AutoSize = true;
+			this->radioGold->Location = System::Drawing::Point(7, 44);
+			this->radioGold->Name = L"radioGold";
+			this->radioGold->Size = System::Drawing::Size(47, 17);
+			this->radioGold->TabIndex = 1;
+			this->radioGold->TabStop = true;
+			this->radioGold->Text = L"Gold";
+			this->radioGold->UseVisualStyleBackColor = true;
+			// 
+			// radioSilver
+			// 
+			this->radioSilver->AutoSize = true;
+			this->radioSilver->Location = System::Drawing::Point(7, 68);
+			this->radioSilver->Name = L"radioSilver";
+			this->radioSilver->Size = System::Drawing::Size(56, 17);
+			this->radioSilver->TabIndex = 2;
+			this->radioSilver->TabStop = true;
+			this->radioSilver->Text = L"Srebro";
+			this->radioSilver->UseVisualStyleBackColor = true;
+			// 
+			// groupOcena
+			// 
+			this->groupOcena->Controls->Add(this->radioDecent);
+			this->groupOcena->Controls->Add(this->radioFeed);
+			this->groupOcena->Controls->Add(this->radioCarry);
+			this->groupOcena->Location = System::Drawing::Point(22, 216);
+			this->groupOcena->Name = L"groupOcena";
+			this->groupOcena->Size = System::Drawing::Size(118, 94);
+			this->groupOcena->TabIndex = 5;
+			this->groupOcena->TabStop = false;
+			this->groupOcena->Text = L"Ocena";
+			// 
+			// radioCarry
+			// 
+			this->radioCarry->AutoSize = true;
+			this->radioCarry->Location = System::Drawing::Point(7, 20);
+			this->radioCarry->Name = L"radioCarry";
+			this->radioCarry->Size = System::Drawing::Size(82, 17);
+			this->radioCarry->TabIndex = 0;
+			this->radioCarry->TabStop = true;
+			this->radioCarry->Text = L"Carrowa³em";
+			this->radioCarry->UseVisualStyleBackColor = true;
+			// 
+			// radioFeed
+			// 
+			this->radioFeed->AutoSize = true;
+			this->radioFeed->Location = System::Drawing::Point(7, 67);
+			this->radioFeed->Name = L"radioFeed";
+			this->radioFeed->Size = System::Drawing::Size(87, 17);
+			this->radioFeed->TabIndex = 1;
+			this->radioFeed->TabStop = true;
+			this->radioFeed->Text = L"Feedowa³em";
+			this->radioFeed->UseVisualStyleBackColor = true;
+			// 
+			// radioDecent
+			// 
+			this->radioDecent->AutoSize = true;
+			this->radioDecent->Location = System::Drawing::Point(7, 44);
+			this->radioDecent->Name = L"radioDecent";
+			this->radioDecent->Size = System::Drawing::Size(110, 17);
+			this->radioDecent->TabIndex = 2;
+			this->radioDecent->TabStop = true;
+			this->radioDecent->Text = L"Posz³o mi znoœnie";
+			this->radioDecent->UseVisualStyleBackColor = true;
+			// 
+			// labelOcena
+			// 
+			this->labelOcena->AutoSize = true;
+			this->labelOcena->Location = System::Drawing::Point(22, 185);
+			this->labelOcena->Name = L"labelOcena";
+			this->labelOcena->Size = System::Drawing::Size(121, 13);
+			this->labelOcena->TabIndex = 6;
+			this->labelOcena->Text = L"Jak oceniasz ten mecz\?";
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(821, 483);
-			this->Controls->Add(this->listBox1);
+			this->ClientSize = System::Drawing::Size(642, 400);
+			this->Controls->Add(this->labelOcena);
+			this->Controls->Add(this->groupOcena);
+			this->Controls->Add(this->groupDywizja);
 			this->Controls->Add(this->label_div_question);
 			this->Controls->Add(this->Etykieta_checkbox);
 			this->Controls->Add(this->Etykieta_tekst);
@@ -123,6 +235,10 @@ namespace WindowsFormApplication1 {
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
+			this->groupDywizja->ResumeLayout(false);
+			this->groupDywizja->PerformLayout();
+			this->groupOcena->ResumeLayout(false);
+			this->groupOcena->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
