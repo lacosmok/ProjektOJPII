@@ -35,7 +35,8 @@ namespace WindowsFormApplication1 {
 			}
 		}
 	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::Label^  Etykieta_tekst;
+	private: System::Windows::Forms::Label^  EtykietaPoleKoncowe;
+
 	private: System::Windows::Forms::Label^  Etykieta_checkbox;
 	private: Form^ tytul;
 	private:		 Timer^ timer1;
@@ -68,17 +69,17 @@ namespace WindowsFormApplication1 {
 		void InitializeComponent(void)
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->Etykieta_tekst = (gcnew System::Windows::Forms::Label());
+			this->EtykietaPoleKoncowe = (gcnew System::Windows::Forms::Label());
 			this->Etykieta_checkbox = (gcnew System::Windows::Forms::Label());
 			this->label_div_question = (gcnew System::Windows::Forms::Label());
 			this->groupDywizja = (gcnew System::Windows::Forms::GroupBox());
-			this->radioPlat = (gcnew System::Windows::Forms::RadioButton());
-			this->radioGold = (gcnew System::Windows::Forms::RadioButton());
 			this->radioSilver = (gcnew System::Windows::Forms::RadioButton());
+			this->radioGold = (gcnew System::Windows::Forms::RadioButton());
+			this->radioPlat = (gcnew System::Windows::Forms::RadioButton());
 			this->groupOcena = (gcnew System::Windows::Forms::GroupBox());
-			this->radioCarry = (gcnew System::Windows::Forms::RadioButton());
-			this->radioFeed = (gcnew System::Windows::Forms::RadioButton());
 			this->radioDecent = (gcnew System::Windows::Forms::RadioButton());
+			this->radioFeed = (gcnew System::Windows::Forms::RadioButton());
+			this->radioCarry = (gcnew System::Windows::Forms::RadioButton());
 			this->labelOcena = (gcnew System::Windows::Forms::Label());
 			this->groupDywizja->SuspendLayout();
 			this->groupOcena->SuspendLayout();
@@ -94,23 +95,25 @@ namespace WindowsFormApplication1 {
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
-			// Etykieta_tekst
+			// EtykietaPoleKoncowe
 			// 
-			this->Etykieta_tekst->AutoSize = true;
-			this->Etykieta_tekst->Location = System::Drawing::Point(187, 20);
-			this->Etykieta_tekst->Name = L"Etykieta_tekst";
-			this->Etykieta_tekst->Size = System::Drawing::Size(140, 13);
-			this->Etykieta_tekst->TabIndex = 1;
-			this->Etykieta_tekst->Text = L"Tu mo¿e byæ cokolwiek heh";
+			this->EtykietaPoleKoncowe->AutoSize = true;
+			this->EtykietaPoleKoncowe->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->EtykietaPoleKoncowe->Location = System::Drawing::Point(294, 307);
+			this->EtykietaPoleKoncowe->MinimumSize = System::Drawing::Size(300, 70);
+			this->EtykietaPoleKoncowe->Name = L"EtykietaPoleKoncowe";
+			this->EtykietaPoleKoncowe->Size = System::Drawing::Size(300, 70);
+			this->EtykietaPoleKoncowe->TabIndex = 1;
 			// 
 			// Etykieta_checkbox
 			// 
 			this->Etykieta_checkbox->AutoSize = true;
-			this->Etykieta_checkbox->Location = System::Drawing::Point(211, 66);
+			this->Etykieta_checkbox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Etykieta_checkbox->Location = System::Drawing::Point(294, 66);
+			this->Etykieta_checkbox->MinimumSize = System::Drawing::Size(300, 200);
 			this->Etykieta_checkbox->Name = L"Etykieta_checkbox";
-			this->Etykieta_checkbox->Size = System::Drawing::Size(43, 13);
+			this->Etykieta_checkbox->Size = System::Drawing::Size(300, 200);
 			this->Etykieta_checkbox->TabIndex = 2;
-			this->Etykieta_checkbox->Text = L"Tekst 2";
 			// 
 			// label_div_question
 			// 
@@ -126,34 +129,12 @@ namespace WindowsFormApplication1 {
 			this->groupDywizja->Controls->Add(this->radioSilver);
 			this->groupDywizja->Controls->Add(this->radioGold);
 			this->groupDywizja->Controls->Add(this->radioPlat);
-			this->groupDywizja->Location = System::Drawing::Point(15, 66);
+			this->groupDywizja->Location = System::Drawing::Point(22, 66);
 			this->groupDywizja->Name = L"groupDywizja";
 			this->groupDywizja->Size = System::Drawing::Size(125, 103);
 			this->groupDywizja->TabIndex = 4;
 			this->groupDywizja->TabStop = false;
 			this->groupDywizja->Text = L"Dywizja";
-			// 
-			// radioPlat
-			// 
-			this->radioPlat->AutoSize = true;
-			this->radioPlat->Location = System::Drawing::Point(7, 20);
-			this->radioPlat->Name = L"radioPlat";
-			this->radioPlat->Size = System::Drawing::Size(60, 17);
-			this->radioPlat->TabIndex = 0;
-			this->radioPlat->TabStop = true;
-			this->radioPlat->Text = L"Platyna";
-			this->radioPlat->UseVisualStyleBackColor = true;
-			// 
-			// radioGold
-			// 
-			this->radioGold->AutoSize = true;
-			this->radioGold->Location = System::Drawing::Point(7, 44);
-			this->radioGold->Name = L"radioGold";
-			this->radioGold->Size = System::Drawing::Size(47, 17);
-			this->radioGold->TabIndex = 1;
-			this->radioGold->TabStop = true;
-			this->radioGold->Text = L"Gold";
-			this->radioGold->UseVisualStyleBackColor = true;
 			// 
 			// radioSilver
 			// 
@@ -166,6 +147,28 @@ namespace WindowsFormApplication1 {
 			this->radioSilver->Text = L"Srebro";
 			this->radioSilver->UseVisualStyleBackColor = true;
 			// 
+			// radioGold
+			// 
+			this->radioGold->AutoSize = true;
+			this->radioGold->Location = System::Drawing::Point(7, 44);
+			this->radioGold->Name = L"radioGold";
+			this->radioGold->Size = System::Drawing::Size(47, 17);
+			this->radioGold->TabIndex = 1;
+			this->radioGold->TabStop = true;
+			this->radioGold->Text = L"Gold";
+			this->radioGold->UseVisualStyleBackColor = true;
+			// 
+			// radioPlat
+			// 
+			this->radioPlat->AutoSize = true;
+			this->radioPlat->Location = System::Drawing::Point(7, 20);
+			this->radioPlat->Name = L"radioPlat";
+			this->radioPlat->Size = System::Drawing::Size(60, 17);
+			this->radioPlat->TabIndex = 0;
+			this->radioPlat->TabStop = true;
+			this->radioPlat->Text = L"Platyna";
+			this->radioPlat->UseVisualStyleBackColor = true;
+			// 
 			// groupOcena
 			// 
 			this->groupOcena->Controls->Add(this->radioDecent);
@@ -173,21 +176,21 @@ namespace WindowsFormApplication1 {
 			this->groupOcena->Controls->Add(this->radioCarry);
 			this->groupOcena->Location = System::Drawing::Point(22, 216);
 			this->groupOcena->Name = L"groupOcena";
-			this->groupOcena->Size = System::Drawing::Size(118, 94);
+			this->groupOcena->Size = System::Drawing::Size(125, 95);
 			this->groupOcena->TabIndex = 5;
 			this->groupOcena->TabStop = false;
 			this->groupOcena->Text = L"Ocena";
 			// 
-			// radioCarry
+			// radioDecent
 			// 
-			this->radioCarry->AutoSize = true;
-			this->radioCarry->Location = System::Drawing::Point(7, 20);
-			this->radioCarry->Name = L"radioCarry";
-			this->radioCarry->Size = System::Drawing::Size(82, 17);
-			this->radioCarry->TabIndex = 0;
-			this->radioCarry->TabStop = true;
-			this->radioCarry->Text = L"Carrowa³em";
-			this->radioCarry->UseVisualStyleBackColor = true;
+			this->radioDecent->AutoSize = true;
+			this->radioDecent->Location = System::Drawing::Point(7, 44);
+			this->radioDecent->Name = L"radioDecent";
+			this->radioDecent->Size = System::Drawing::Size(110, 17);
+			this->radioDecent->TabIndex = 2;
+			this->radioDecent->TabStop = true;
+			this->radioDecent->Text = L"Posz³o mi znoœnie";
+			this->radioDecent->UseVisualStyleBackColor = true;
 			// 
 			// radioFeed
 			// 
@@ -200,16 +203,16 @@ namespace WindowsFormApplication1 {
 			this->radioFeed->Text = L"Feedowa³em";
 			this->radioFeed->UseVisualStyleBackColor = true;
 			// 
-			// radioDecent
+			// radioCarry
 			// 
-			this->radioDecent->AutoSize = true;
-			this->radioDecent->Location = System::Drawing::Point(7, 44);
-			this->radioDecent->Name = L"radioDecent";
-			this->radioDecent->Size = System::Drawing::Size(110, 17);
-			this->radioDecent->TabIndex = 2;
-			this->radioDecent->TabStop = true;
-			this->radioDecent->Text = L"Posz³o mi znoœnie";
-			this->radioDecent->UseVisualStyleBackColor = true;
+			this->radioCarry->AutoSize = true;
+			this->radioCarry->Location = System::Drawing::Point(7, 20);
+			this->radioCarry->Name = L"radioCarry";
+			this->radioCarry->Size = System::Drawing::Size(82, 17);
+			this->radioCarry->TabIndex = 0;
+			this->radioCarry->TabStop = true;
+			this->radioCarry->Text = L"Carrowa³em";
+			this->radioCarry->UseVisualStyleBackColor = true;
 			// 
 			// labelOcena
 			// 
@@ -230,7 +233,7 @@ namespace WindowsFormApplication1 {
 			this->Controls->Add(this->groupDywizja);
 			this->Controls->Add(this->label_div_question);
 			this->Controls->Add(this->Etykieta_checkbox);
-			this->Controls->Add(this->Etykieta_tekst);
+			this->Controls->Add(this->EtykietaPoleKoncowe);
 			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
@@ -246,15 +249,36 @@ namespace WindowsFormApplication1 {
 #pragma endregion
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 Form^ okno = gcnew Form();
-				 okno->Text = "wow wow";
+				 okno->Text = "Formularz";
 				 okno->Width = 500;
 				 Rectangle ekran = System::Windows::Forms::Screen::GetBounds(okno);
 				 okno->Top = (ekran.Height / 2) - (okno->Height / 2);
+				 //cs
+				 Label^ Etykieta_cs = gcnew Label();
+				 Etykieta_cs->Location = Point(10, 10);
+				 Etykieta_cs->Width = 200;
+				 Etykieta_cs->Text = "Ilosæ zabitych minionków";
+				 okno->Controls->Add(Etykieta_cs);
 
-				 TextBox^ Pole_okienka = gcnew TextBox();
-				 Pole_okienka->Location = Point(100, 100);
-				 Pole_okienka->Width = 200;
-				 okno->Controls->Add(Pole_okienka);
+				 TextBox^ Pole_cs = gcnew TextBox();
+				 Pole_cs->Location = Point(10, 30);
+				 Pole_cs->Width = 200;
+				 okno->Controls->Add(Pole_cs);
+				 
+				 //Statystyki
+				 Label^ Etykieta_staty = gcnew Label();
+				 Etykieta_staty->Location = Point(10, 50);
+				 Etykieta_staty->Width = 200;
+				 Etykieta_staty->Text = "Statystyki podczas rozgrywki";
+				 okno->Controls->Add(Etykieta_staty);
+
+				 MaskedTextBox^ Pole_staty = gcnew MaskedTextBox();
+				 Pole_staty->Location = Point(10, 70);
+				 Pole_staty->Width = 200;
+				 //Pole_staty->Mask = 3;
+				 okno->Controls->Add(Pole_staty);
+
+
 
 				 CheckBox^ Do_okienka = gcnew CheckBox();
 				 Do_okienka->Location = Point(100, 150);
@@ -270,16 +294,18 @@ namespace WindowsFormApplication1 {
 				 Przycisk_okienkowy->DialogResult = System::Windows::Forms::DialogResult::OK;
 				 okno->ShowDialog();
 				 //te 2 polecenia dzia³aja tylko z poziomu okna dialogowego
-				 Etykieta_tekst->Text = Pole_okienka->Text;
-				 Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
+				 //Etykieta_tekst->Text = Pole_okienka->Text;
+				 //Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
 				 //okno->ShowDialog();   // trzeba wykonaæ akcjê ¿eby wróciæ do okna g³ównego 
 	}
 			 System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e){
 				 tytul = gcnew Form;
 				 tytul->Height = 100;
+
 				 Label^ napis = gcnew Label;
 				 napis->Text = "Super program wow";
 				 tytul->Controls->Add(napis);
+
 				 tytul->TopMost = true;
 				 tytul->Show();
 				 timer1 = gcnew Timer;
