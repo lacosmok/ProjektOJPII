@@ -34,19 +34,21 @@ namespace WindowsFormApplication1 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Label^  Etykieta_tekst;
+	private: System::Windows::Forms::Label^  Etykieta_checkbox;
+	private: Form^ tytul;
+	private:		 Timer^ timer1;
+	private: System::Windows::Forms::Label^  label_div_question;
+	private: System::Windows::Forms::ListBox^  listBox1;
 	protected:
-	private: System::Windows::Forms::Label^  InfoCS;
-	private: System::Windows::Forms::Label^  InfoStaty;
-	private: System::Windows::Forms::Label^  InfoGold;
-	private: System::Windows::Forms::TextBox^  textBox2;
-	private: System::Windows::Forms::MaskedTextBox^  maskedTextBox1;
-	private: System::Windows::Forms::Label^  label1;
 
 	private:
 		/// <summary>
 		/// Required designer variable.
+
 		/// </summary>
+
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
@@ -56,92 +58,123 @@ namespace WindowsFormApplication1 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->InfoCS = (gcnew System::Windows::Forms::Label());
-			this->InfoStaty = (gcnew System::Windows::Forms::Label());
-			this->InfoGold = (gcnew System::Windows::Forms::Label());
-			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->maskedTextBox1 = (gcnew System::Windows::Forms::MaskedTextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->Etykieta_tekst = (gcnew System::Windows::Forms::Label());
+			this->Etykieta_checkbox = (gcnew System::Windows::Forms::Label());
+			this->label_div_question = (gcnew System::Windows::Forms::Label());
+			this->listBox1 = (gcnew System::Windows::Forms::ListBox());
 			this->SuspendLayout();
 			// 
-			// textBox1
+			// button1
 			// 
-			this->textBox1->Location = System::Drawing::Point(545, 66);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(100, 20);
-			this->textBox1->TabIndex = 0;
+			this->button1->Location = System::Drawing::Point(588, 392);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(170, 60);
+			this->button1->TabIndex = 0;
+			this->button1->Text = L"Otwórz okno";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
-			// InfoCS
+			// Etykieta_tekst
 			// 
-			this->InfoCS->AutoSize = true;
-			this->InfoCS->Location = System::Drawing::Point(415, 66);
-			this->InfoCS->Name = L"InfoCS";
-			this->InfoCS->Size = System::Drawing::Size(124, 13);
-			this->InfoCS->TabIndex = 1;
-			this->InfoCS->Text = L"Iloœæ zabitych minionków";
+			this->Etykieta_tekst->AutoSize = true;
+			this->Etykieta_tekst->Location = System::Drawing::Point(588, 95);
+			this->Etykieta_tekst->Name = L"Etykieta_tekst";
+			this->Etykieta_tekst->Size = System::Drawing::Size(140, 13);
+			this->Etykieta_tekst->TabIndex = 1;
+			this->Etykieta_tekst->Text = L"Tu mo¿e byæ cokolwiek heh";
 			// 
-			// InfoStaty
+			// Etykieta_checkbox
 			// 
-			this->InfoStaty->AutoSize = true;
-			this->InfoStaty->Location = System::Drawing::Point(415, 96);
-			this->InfoStaty->Name = L"InfoStaty";
-			this->InfoStaty->Size = System::Drawing::Size(99, 13);
-			this->InfoStaty->TabIndex = 2;
-			this->InfoStaty->Text = L"Statystyki rozgrywki";
+			this->Etykieta_checkbox->AutoSize = true;
+			this->Etykieta_checkbox->Location = System::Drawing::Point(591, 186);
+			this->Etykieta_checkbox->Name = L"Etykieta_checkbox";
+			this->Etykieta_checkbox->Size = System::Drawing::Size(43, 13);
+			this->Etykieta_checkbox->TabIndex = 2;
+			this->Etykieta_checkbox->Text = L"Tekst 2";
 			// 
-			// InfoGold
+			// label_div_question
 			// 
-			this->InfoGold->AutoSize = true;
-			this->InfoGold->Location = System::Drawing::Point(418, 124);
-			this->InfoGold->Name = L"InfoGold";
-			this->InfoGold->Size = System::Drawing::Size(108, 13);
-			this->InfoGold->TabIndex = 3;
-			this->InfoGold->Text = L"Iloœæ zdobytego z³ota";
+			this->label_div_question->AutoSize = true;
+			this->label_div_question->Location = System::Drawing::Point(12, 37);
+			this->label_div_question->Name = L"label_div_question";
+			this->label_div_question->Size = System::Drawing::Size(116, 13);
+			this->label_div_question->TabIndex = 3;
+			this->label_div_question->Text = L"W której dywizji jesteœ\?";
 			// 
-			// textBox2
+			// listBox1
 			// 
-			this->textBox2->Location = System::Drawing::Point(545, 124);
-			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(100, 20);
-			this->textBox2->TabIndex = 4;
-			// 
-			// maskedTextBox1
-			// 
-			this->maskedTextBox1->Location = System::Drawing::Point(545, 96);
-			this->maskedTextBox1->Mask = L"00/00/00";
-			this->maskedTextBox1->Name = L"maskedTextBox1";
-			this->maskedTextBox1->Size = System::Drawing::Size(100, 20);
-			this->maskedTextBox1->TabIndex = 5;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(421, 211);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(39, 13);
-			this->label1->TabIndex = 6;
-			this->label1->Text = L"Ocena";
+			this->listBox1->FormattingEnabled = true;
+			this->listBox1->Location = System::Drawing::Point(15, 54);
+			this->listBox1->Name = L"listBox1";
+			this->listBox1->Size = System::Drawing::Size(120, 95);
+			this->listBox1->TabIndex = 4;
 			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(811, 447);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->maskedTextBox1);
-			this->Controls->Add(this->textBox2);
-			this->Controls->Add(this->InfoGold);
-			this->Controls->Add(this->InfoStaty);
-			this->Controls->Add(this->InfoCS);
-			this->Controls->Add(this->textBox1);
+			this->ClientSize = System::Drawing::Size(821, 483);
+			this->Controls->Add(this->listBox1);
+			this->Controls->Add(this->label_div_question);
+			this->Controls->Add(this->Etykieta_checkbox);
+			this->Controls->Add(this->Etykieta_tekst);
+			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
+			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 Form^ okno = gcnew Form();
+				 okno->Text = "wow wow";
+				 okno->Width = 500;
+				 Rectangle ekran = System::Windows::Forms::Screen::GetBounds(okno);
+				 okno->Top = (ekran.Height / 2) - (okno->Height / 2);
+
+				 TextBox^ Pole_okienka = gcnew TextBox();
+				 Pole_okienka->Location = Point(100, 100);
+				 Pole_okienka->Width = 200;
+				 okno->Controls->Add(Pole_okienka);
+
+				 CheckBox^ Do_okienka = gcnew CheckBox();
+				 Do_okienka->Location = Point(100, 150);
+				 Do_okienka->Text = "wow wow jesteœ wow?";
+				 Do_okienka->Width = 200;
+				 okno->Controls->Add(Do_okienka);
+
+				 Button^ Przycisk_okienkowy = gcnew Button();
+				 Przycisk_okienkowy->Location = Point(200, 200);
+				 Przycisk_okienkowy->Text = "jestem wspania³ym przyciskiem";
+				 Przycisk_okienkowy->Width = 200;
+				 okno->Controls->Add(Przycisk_okienkowy);
+				 Przycisk_okienkowy->DialogResult = System::Windows::Forms::DialogResult::OK;
+				 okno->ShowDialog();
+				 //te 2 polecenia dzia³aja tylko z poziomu okna dialogowego
+				 Etykieta_tekst->Text = Pole_okienka->Text;
+				 Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
+				 //okno->ShowDialog();   // trzeba wykonaæ akcjê ¿eby wróciæ do okna g³ównego 
+	}
+			 System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e){
+				 tytul = gcnew Form;
+				 tytul->Height = 100;
+				 Label^ napis = gcnew Label;
+				 napis->Text = "Super program wow";
+				 tytul->Controls->Add(napis);
+				 tytul->TopMost = true;
+				 tytul->Show();
+				 timer1 = gcnew Timer;
+				 //timer1->Tick(100);
+				 timer1->Start();
+			 }
+			 /*
+			 System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e){
+				 timer1->Stop();
+				 tytul->Close();
+
+			 }*/
 	};
 }
-
