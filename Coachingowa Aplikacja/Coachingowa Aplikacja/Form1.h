@@ -238,7 +238,7 @@ namespace WindowsFormApplication1 {
 			this->Controls->Add(this->EtykietaPoleKoncowe);
 			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
-			this->Text = L"Form1";
+			this->Text = L"Check Yours Skills";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->groupDywizja->ResumeLayout(false);
 			this->groupDywizja->PerformLayout();
@@ -295,13 +295,13 @@ namespace WindowsFormApplication1 {
 				 Label^ Etykieta_zadany = gcnew Label();
 				 Etykieta_zadany->Location = Point(250, 10);
 				 Etykieta_zadany->Width = 200;
-				 Etykieta_zadany->Text = "Zadany dmg";
+				 Etykieta_zadany->Text = "Zadane obra¿enia";
 				 okno->Controls->Add(Etykieta_zadany);
 
 				 Label^ Etykieta_otrzymany = gcnew Label();
 				 Etykieta_otrzymany->Location = Point(250, 50);
 				 Etykieta_otrzymany->Width = 200;
-				 Etykieta_otrzymany->Text = "Otrzymany dmg";
+				 Etykieta_otrzymany->Text = "Otrzymane obra¿enia";
 				 okno->Controls->Add(Etykieta_otrzymany);
 
 				 MaskedTextBox^ Czas_gry = gcnew MaskedTextBox();
@@ -368,9 +368,15 @@ namespace WindowsFormApplication1 {
 				 //matematyka 
 
 				 System::Double cs_per_minute = Double::Parse(Pole_cs->Text) / Double::Parse(Czas_gry->Text);
-				 System::Double statystyki[3] = { Double::Parse(Pole_staty->Text), 2, 3 };
-				
-				 EtykietaPoleKoncowe->Text = cs_per_minute.ToString();
+				 //System::Double statystyki[3] = { Double::Parse(Pole_staty->Text), 2, 3 };
+				 if (cs_per_minute>12)
+				 {
+					 EtykietaPoleKoncowe->Text ="cs na minutê "+ cs_per_minute.ToString("0,##")+ " super wynik, nieŸle ci posz³o";
+				 }
+				 else{
+					 EtykietaPoleKoncowe->Text = "cs na minutê " + cs_per_minute.ToString("0,##") + " musisz poæwiczyæ lasthit";
+				 }
+				 //EtykietaPoleKoncowe->Text = cs_per_minute.ToString();
 				 //Etykieta_Dane->Text = Otrzymany_dmg->Text;
 				 //Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
 				 //okno->ShowDialog();   // trzeba wykonaæ akcjê ¿eby wróciæ do okna g³ównego 
@@ -380,7 +386,10 @@ namespace WindowsFormApplication1 {
 				 tytul->Height = 100;
 
 				 Label^ napis = gcnew Label;
-				 napis->Text = "Super program wow";
+				 napis->Text = "Witam w aplikacji oceniaj¹cej twoj¹ grê w League of Legends";
+				 napis->Height = 100;
+				 napis->Width = 200;
+				 tytul->Location = Point(500, 500);
 				 tytul->Controls->Add(napis);
 
 				 tytul->TopMost = true;
