@@ -275,14 +275,14 @@ namespace WindowsFormApplication1 {
 				 MaskedTextBox^ Pole_staty = gcnew MaskedTextBox();
 				 Pole_staty->Location = Point(10, 70);
 				 Pole_staty->Width = 200;
-				 //Pole_staty->Mask = 3;
+				 Pole_staty->Mask = "00/00/00";
 				 okno->Controls->Add(Pole_staty);
 
 
 
 				 CheckBox^ Do_okienka = gcnew CheckBox();
-				 Do_okienka->Location = Point(100, 150);
-				 Do_okienka->Text = "wow wow jesteœ wow?";
+				 Do_okienka->Location = Point(10, 90);
+				 Do_okienka->Text = "Dosta³eœ Pierwsz¹ krew?";
 				 Do_okienka->Width = 200;
 				 okno->Controls->Add(Do_okienka);
 
