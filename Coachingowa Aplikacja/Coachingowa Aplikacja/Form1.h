@@ -365,8 +365,12 @@ namespace WindowsFormApplication1 {
 					 +"\n"+ Etykieta_zadany->Text+" "+ Otrzymany_dmg->Text
 					 +"\n" + Etykieta_czas_gry->Text + " " + Czas_gry->Text
 					 + "\n" + Etykieta_staty->Text + " " + Pole_staty->Text;
+				 //matematyka 
 
-				 EtykietaPoleKoncowe->Text = Double::Parse(Pole_cs->Text) + Double::Parse(Zadany_dmg->Text);
+				 System::Double cs_per_minute = Double::Parse(Pole_cs->Text) / Double::Parse(Czas_gry->Text);
+				 System::Double statystyki[3] = { Double::Parse(Pole_staty->Text), 2, 3 };
+				
+				 EtykietaPoleKoncowe->Text = cs_per_minute.ToString();
 				 //Etykieta_Dane->Text = Otrzymany_dmg->Text;
 				 //Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
 				 //okno->ShowDialog();   // trzeba wykonaæ akcjê ¿eby wróciæ do okna g³ównego 
