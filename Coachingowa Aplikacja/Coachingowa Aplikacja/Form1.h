@@ -36,8 +36,9 @@ namespace WindowsFormApplication1 {
 		}
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Label^  EtykietaPoleKoncowe;
+	private: System::Windows::Forms::Label^  Etykieta_Dane;
 
-	private: System::Windows::Forms::Label^  Etykieta_checkbox;
+
 	private: Form^ tytul;
 	private:		 Timer^ timer1;
 	private: System::Windows::Forms::Label^  label_div_question;
@@ -70,7 +71,7 @@ namespace WindowsFormApplication1 {
 		{
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->EtykietaPoleKoncowe = (gcnew System::Windows::Forms::Label());
-			this->Etykieta_checkbox = (gcnew System::Windows::Forms::Label());
+			this->Etykieta_Dane = (gcnew System::Windows::Forms::Label());
 			this->label_div_question = (gcnew System::Windows::Forms::Label());
 			this->groupDywizja = (gcnew System::Windows::Forms::GroupBox());
 			this->radioSilver = (gcnew System::Windows::Forms::RadioButton());
@@ -105,15 +106,16 @@ namespace WindowsFormApplication1 {
 			this->EtykietaPoleKoncowe->Size = System::Drawing::Size(300, 70);
 			this->EtykietaPoleKoncowe->TabIndex = 1;
 			// 
-			// Etykieta_checkbox
+			// Etykieta_Dane
 			// 
-			this->Etykieta_checkbox->AutoSize = true;
-			this->Etykieta_checkbox->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->Etykieta_checkbox->Location = System::Drawing::Point(294, 66);
-			this->Etykieta_checkbox->MinimumSize = System::Drawing::Size(300, 200);
-			this->Etykieta_checkbox->Name = L"Etykieta_checkbox";
-			this->Etykieta_checkbox->Size = System::Drawing::Size(300, 200);
-			this->Etykieta_checkbox->TabIndex = 2;
+			this->Etykieta_Dane->AutoSize = true;
+			this->Etykieta_Dane->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->Etykieta_Dane->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 14.25F));
+			this->Etykieta_Dane->Location = System::Drawing::Point(294, 66);
+			this->Etykieta_Dane->MinimumSize = System::Drawing::Size(300, 200);
+			this->Etykieta_Dane->Name = L"Etykieta_Dane";
+			this->Etykieta_Dane->Size = System::Drawing::Size(300, 200);
+			this->Etykieta_Dane->TabIndex = 2;
 			// 
 			// label_div_question
 			// 
@@ -232,7 +234,7 @@ namespace WindowsFormApplication1 {
 			this->Controls->Add(this->groupOcena);
 			this->Controls->Add(this->groupDywizja);
 			this->Controls->Add(this->label_div_question);
-			this->Controls->Add(this->Etykieta_checkbox);
+			this->Controls->Add(this->Etykieta_Dane);
 			this->Controls->Add(this->EtykietaPoleKoncowe);
 			this->Controls->Add(this->button1);
 			this->Name = L"Form1";
@@ -278,23 +280,94 @@ namespace WindowsFormApplication1 {
 				 Pole_staty->Mask = "00/00/00";
 				 okno->Controls->Add(Pole_staty);
 
+				 MaskedTextBox^ Otrzymany_dmg = gcnew MaskedTextBox();
+				 Otrzymany_dmg->Location = Point(250, 30);
+				 Otrzymany_dmg->Width = 200;
+				 Otrzymany_dmg->Mask = "00000000";
+				 okno->Controls->Add(Otrzymany_dmg);
 
+				 MaskedTextBox^ Zadany_dmg = gcnew MaskedTextBox();
+				 Zadany_dmg->Location = Point(250, 70);
+				 Zadany_dmg->Width = 200;
+				 Zadany_dmg->Mask = "00000000";
+				 okno->Controls->Add(Zadany_dmg);
+//        Drugi rz¹d
+				 Label^ Etykieta_zadany = gcnew Label();
+				 Etykieta_zadany->Location = Point(250, 10);
+				 Etykieta_zadany->Width = 200;
+				 Etykieta_zadany->Text = "Zadany dmg";
+				 okno->Controls->Add(Etykieta_zadany);
+
+				 Label^ Etykieta_otrzymany = gcnew Label();
+				 Etykieta_otrzymany->Location = Point(250, 50);
+				 Etykieta_otrzymany->Width = 200;
+				 Etykieta_otrzymany->Text = "Otrzymany dmg";
+				 okno->Controls->Add(Etykieta_otrzymany);
+
+				 MaskedTextBox^ Czas_gry = gcnew MaskedTextBox();
+				 Czas_gry->Location = Point(250, 120);
+				 Czas_gry->Width = 200;
+				 Czas_gry->Mask = "000";
+				 okno->Controls->Add(Czas_gry);
+				 //        Drugi rz¹d
+				 Label^ Etykieta_czas_gry = gcnew Label();
+				 Etykieta_czas_gry->Location = Point(250, 100);
+				 Etykieta_czas_gry->Width = 200;
+				 Etykieta_czas_gry->Text = "Czas gry";
+				 okno->Controls->Add(Etykieta_czas_gry);
 
 				 CheckBox^ Do_okienka = gcnew CheckBox();
 				 Do_okienka->Location = Point(10, 90);
-				 Do_okienka->Text = "Dosta³eœ Pierwsz¹ krew?";
+				 Do_okienka->Text = "Dosta³eœ Pierwsz¹ Krew?";
 				 Do_okienka->Width = 200;
 				 okno->Controls->Add(Do_okienka);
 
+				 GroupBox^ Grupa_rola = gcnew GroupBox();
+				 Grupa_rola->Location = Point(10, 120);
+				 Grupa_rola->Width = 100;
+				 Grupa_rola->Height = 100;
+				 Grupa_rola->Text = "Rola";
+				 okno->Controls->Add(Grupa_rola);
+
+
+				 RadioButton^ Radio_mid = gcnew RadioButton();
+				 Radio_mid->Location = Point(20, 20);
+				 Radio_mid->Text = "Mid";
+				 Radio_mid->Width = 50;
+				 //okno->Controls->Add(Radio_mid);
+				 Grupa_rola->Controls->Add(Radio_mid);
+
+				 RadioButton^ Radio_top = gcnew RadioButton();
+				 Radio_top->Location = Point(20, 40);
+				 Radio_top->Text = "Top";
+				 Radio_top->Width = 50;
+				 //okno->Controls->Add(Radio_top);
+				 Grupa_rola->Controls->Add(Radio_top);
+
+				 RadioButton^ Radio_adc = gcnew RadioButton();
+				 Radio_adc->Location = Point(20, 60);
+				 Radio_adc->Text = "Adc";
+				 Radio_adc->Width = 200;
+				 okno->Controls->Add(Radio_adc);
+				 Grupa_rola->Controls->Add(Radio_adc);
+
 				 Button^ Przycisk_okienkowy = gcnew Button();
-				 Przycisk_okienkowy->Location = Point(200, 200);
-				 Przycisk_okienkowy->Text = "jestem wspania³ym przyciskiem";
+				 Przycisk_okienkowy->Location = Point(250, 200);
+				 Przycisk_okienkowy->Text = "Zapisz";
 				 Przycisk_okienkowy->Width = 200;
 				 okno->Controls->Add(Przycisk_okienkowy);
 				 Przycisk_okienkowy->DialogResult = System::Windows::Forms::DialogResult::OK;
 				 okno->ShowDialog();
+
 				 //te 2 polecenia dzia³aja tylko z poziomu okna dialogowego
-				 //Etykieta_tekst->Text = Pole_okienka->Text;
+				 Etykieta_Dane->Text = Etykieta_cs->Text + " "+Pole_cs->Text+
+					"\n"+ Etykieta_otrzymany->Text +"  " +Zadany_dmg->Text 
+					 +"\n"+ Etykieta_zadany->Text+" "+ Otrzymany_dmg->Text
+					 +"\n" + Etykieta_czas_gry->Text + " " + Czas_gry->Text
+					 + "\n" + Etykieta_staty->Text + " " + Pole_staty->Text;
+
+				 EtykietaPoleKoncowe->Text = Double::Parse(Pole_cs->Text) + Double::Parse(Zadany_dmg->Text);
+				 //Etykieta_Dane->Text = Otrzymany_dmg->Text;
 				 //Etykieta_checkbox->Text = Do_okienka->Checked.ToString();
 				 //okno->ShowDialog();   // trzeba wykonaæ akcjê ¿eby wróciæ do okna g³ównego 
 	}
